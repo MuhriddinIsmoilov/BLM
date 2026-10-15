@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindsetgram - Mini Social Network</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* iOS Green Liquid Glassmorphism */
+        body {
+            background-color: #040907;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(16, 185, 129, 0.22) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(5, 150, 105, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .liquid-glass {
+            background: rgba(13, 27, 20, 0.55);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+                        inset 0 -1px 1px 0 rgba(16, 185, 129, 0.25);
+        }
+
+        .liquid-header {
+            background: rgba(5, 11, 8, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .liquid-input {
+            background: rgba(8, 18, 13, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+        }
+        .liquid-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Hide scrollbars for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="liquid-header sticky top-0 z-50">
+        <div class="max-w-xl mx-auto px-4 h-14 flex items-center justify-between">
+            <h1 class="font-bold text-xl tracking-wider bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent">Mindsetgram</h1>
+            <div class="flex items-center space-x-4 text-lg">
+                <button onclick="openCreateModal()" class="hover:text-emerald-400 transition" title="Post yaratish">
+                    <i class="fa-regular fa-square-plus"></i>
+                </button>
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-700 flex items-center justify-center text-xs font-bold shadow-md">
+                    MU
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-xl w-full mx-auto p-3 flex-1 flex flex-col mb-16 space-y-4">
+
+        <!-- STORIES SECTION -->
+        <div class="liquid-glass p-3 rounded-2xl flex space-x-3 overflow-x-auto no-scrollbar">
+            <!-- My Story -->
+            <div class="flex flex-col items-center flex-shrink-0 cursor-pointer">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 to-emerald-600 shadow-md">
+                    <div class="w-full h-full bg-slate-900 rounded-full flex items-center justify-center text-sm font-bold text-emerald-400">
+                        +
+                    </div>
+                </div>
+                <span class="text-[11px] text-slate-300 mt-1">Hikoyangiz</span>
+            </div>
+            <!-- Friend Stories -->
+            <div class="flex flex-col items-center flex-shrink-0 cursor-pointer">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 to-emerald-600 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-full" alt="User">
+                </div>
+                <span class="text-[11px] text-slate-300 mt-1">alex_dev</span>
+            </div>
+            <div class="flex flex-col items-center flex-shrink-0 cursor-pointer">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 to-emerald-600 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-full" alt="User">
+                </div>
+                <span class="text-[11px] text-slate-300 mt-1">lily_mind</span>
+            </div>
+            <div class="flex flex-col items-center flex-shrink-0 cursor-pointer">
+                <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-tr from-emerald-400 to-emerald-600 shadow-md">
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80" class="w-full h-full object-cover rounded-full" alt="User">
+                </div>
+                <span class="text-[11px] text-slate-300 mt-1">javohir</span>
+            </div>
+        </div>
+
+        <!-- POSTS FEED -->
+        <div id="posts-container" class="space-y-4">
+            <!-- Dynamic posts will be loaded here -->
+        </div>
+
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 right-0 liquid-header z-50 flex justify-around py-3 px-4 border-t border-emerald-500/20 shadow-2xl max-w-xl mx-auto">
+        <button onclick="switchTab('feed')" id="nav-feed" class="text-emerald-400 text-xl transition">
+            <i class="fa-solid fa-house"></i>
+        </button>
+        <button onclick="switchTab('search')" id="nav-search" class="text-slate-400 hover:text-white text-xl transition">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button onclick="openCreateModal()" class="text-slate-400 hover:text-emerald-400 text-xl transition">
+            <i class="fa-regular fa-square-plus"></i>
+        </button>
+        <button onclick="switchTab('profile')" id="nav-profile" class="text-slate-400 hover:text-white text-xl transition">
+            <i class="fa-regular fa-user"></i>
+        </button>
+    </div>
+
+    <!-- CREATE POST MODAL -->
+    <div id="create-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="liquid-glass p-6 rounded-3xl max-w-md w-full shadow-2xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="font-bold text-base text-slate-100">Yangi Post Yaratish</h3>
+                <button onclick="closeCreateModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <input type="text" id="post-img-input" placeholder="Rasm havolasi (URL)..." 
+                class="w-full liquid-input rounded-2xl px-4 py-3 text-sm focus:outline-none text-slate-100 placeholder-slate-500">
+            <textarea id="post-desc-input" placeholder="Izoh yozing..." rows="3"
+                class="w-full liquid-input rounded-2xl px-4 py-3 text-sm focus:outline-none text-slate-100 placeholder-slate-500 resize-none"></textarea>
+            <button onclick="addNewPost()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-2xl font-medium transition shadow-lg shadow-emerald-600/30">
+                Ulashish
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initial Posts Data
+        let posts = [
+            let posts = [
+            {
+                id: 1,
+                author: "muhriddin_dev",
+                avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+                likes: 142,
+                caption: "Mindset Fortress platformasining yangi dizayni ustida ishlayapmiz! 🚀 #coding #web",
+                liked: false
+            },
+            {
+                id: 2,
+                author: "tech_uz",
+                avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
+                likes: 89,
+                caption: "Texnologiya olamidagi eng so'nggi yangiliklar. 💻✨",
+                liked: false
+            }
+        ];
+
+        function renderFeed() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = posts.map(post => `
+                <div class="liquid-glass rounded-3xl overflow-hidden shadow-xl">
+                    <!-- Post Header -->
+                    <div class="p-3 flex items-center justify-between border-b border-emerald-500/10">
+                        <div class="flex items-center space-x-2.5">
+                            <img src="${post.avatar}" class="w-8 h-8 rounded-full object-cover border border-emerald-500/30" alt="">
+                            <span class="font-semibold text-xs text-slate-200">${post.author}</span>
+                        </div>
+                        <button class="text-slate-400 hover:text-white"><i class="fa-solid fa-ellipsis"></i></button>
+                    </div>
+
+                    <!-- Post Image -->
+                    <div class="w-full bg-black/40 max-h-[350px] overflow-hidden flex items-center justify-center">
+                        <img src="${post.image}" class="w-full object-cover" alt="Post Image">
+                    </div>
+
+                    <!-- Post Actions & Caption -->
+                    <div class="p-4 space-y-2">
+                        <div class="flex items-center space-x-4 text-lg">
+                            <button onclick="toggleLike(${post.id})" class="transition ${post.liked ? 'text-red-500' : 'text-slate-300 hover:text-red-400'}">
+                                <i class="${post.liked ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                            </button>
+                            <button class="text-slate-300 hover:text-emerald-400 transition"><i class="fa-regular fa-comment"></i></button>
+                            <button class="text-slate-300 hover:text-emerald-400 transition"><i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-200">${post.likes} ta yoqdi</p>
+                        <p class="text-xs text-slate-300"><span class="font-semibold text-slate-200 mr-2">${post.author}</span>${post.caption}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleLike(id) {
+            const post = posts.find(p => p.id === id);
+            if (post) {
+                post.liked = !post.liked;
+                post.likes += post.liked ? 1 : -1;
+                renderFeed();
+            }
+        }
+
+        function openCreateModal() {
+            document.getElementById('create-modal').classList.remove('hidden');
+            document.getElementById('create-modal').classList.add('flex');
+        }
+
+        function closeCreateModal() {
+            document.getElementById('create-modal').classList.add('hidden');
+            document.getElementById('create-modal').classList.remove('flex');
+        }
+
+        function addNewPost() {
+            const imgUrl = document.getElementById('post-img-input').value.trim();
+            const desc = document.getElementById('post-desc-input').value.trim();
+
+            if (!imgUrl) {
+                alert('Iltimos, rasm havolasini kiriting!');
+                return;
+            }
+
+            const newPost = {
+                id: Date.now(),
+                author: "Muhriddin",
+                avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80",
+                image: imgUrl,
+                likes: 1,
+                caption: desc || "Yangi post!",
+                liked: true
+            };
+
+            posts.unshift(newPost);
+            document.getElementById('post-img-input').value = '';
+            document.getElementById('post-desc-input').value = '';
+            closeCreateModal();
+            renderFeed();
+        }
+
+        function switchTab(tab) {
+            ['feed', 'search', 'profile'].forEach(t => {
+                const btn = document.getElementById(`nav-${t}`);
+                if(btn) btn.className = "text-slate-400 hover:text-white text-xl transition";
+            });
+            const active = document.getElementById(`nav-${tab}`);
+            if(active) active.className = "text-emerald-400 text-xl transition";
+
+            if(tab === 'profile') {
+                alert("Profil sahifasi: Sizning shaxsiy sahifangiz va postlaringiz!");
+            } else if(tab === 'search') {
+                alert("Qidiruv bo'limi tez kunda qo'shiladi!");
+            }
+        }
+
+        // Initialize Feed
+        renderFeed();
+    </script>
+</body>
+</html>
